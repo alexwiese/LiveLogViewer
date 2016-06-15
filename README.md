@@ -11,3 +11,7 @@ Live Log Viewer will monitor files for changes, renaming, deletion and creation.
 ### Encoding
 
 Live Log Viewer supports different Encoding per file, based on the Encodings available on the machine.
+
+### Download
+
+Latest binary is available [here](https://github.com/alexwiese/LiveLogViewer/releases/latest)
