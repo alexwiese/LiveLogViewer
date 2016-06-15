@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Data;
 
-namespace LiveLogViewer
+namespace LiveLogViewer.Converters
 {
     public class FreezeTextConverter : IValueConverter
     {

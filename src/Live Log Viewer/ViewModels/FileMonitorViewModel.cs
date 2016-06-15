@@ -1,16 +1,18 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Windows;
 
+using LiveLogViewer.FileMonitor;
 using LiveLogViewer.Helpers;
+using LiveLogViewer.Properties;
 
 namespace LiveLogViewer.ViewModels
 {
     public class FileMonitorViewModel : ViewModel, IDisposable
     {
-        private readonly IFileMonitor _fileMonitor;
-        private string _filePath;
+        private readonly ITimedFileMonitor _fileMonitor;
         private bool _fileExists;
         private string _fileName;
         private bool _isFrozen;
@@ -45,7 +47,7 @@ namespace LiveLogViewer.ViewModels
             Preconditions.CheckNotEmptyOrNull(filePath);
             Preconditions.CheckNotEmptyOrNull(fileName);
 
-            _filePath = filePath;
+            FilePath = filePath;
             _fileName = fileName;
 
             FileExists = File.Exists(filePath);
@@ -62,16 +64,24 @@ namespace LiveLogViewer.ViewModels
             _encoding = _encoding ?? Encoding.UTF8;
             _encodingName = _encoding.BodyName;
 
-            _fileMonitor = new TimedFileMonitor(filePath, _encoding) { BufferedRead = bufferedRead };
+            _fileMonitor = new TimedFileMonitor(filePath, _encoding, TimeSpan.FromSeconds(Settings.Default.TimerIntervalSeconds)) { BufferedRead = bufferedRead };
             _fileMonitor.FileUpdated += FileMonitorOnFileUpdated;
             _fileMonitor.FileDeleted += FileMonitorOnFileDeleted;
             _fileMonitor.FileCreated += FileMonitorOnFileCreated;
             _fileMonitor.FileRenamed += FileMonitorOnFileRenamed;
+
+            Settings.Default.PropertyChanged += SettingsChanged;
+        }
+
+        private void SettingsChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
+        {
+            if (propertyChangedEventArgs.PropertyName == nameof(Settings.Default.TimerIntervalSeconds))
+                _fileMonitor.TimerInterval = TimeSpan.FromSeconds(Settings.Default.TimerIntervalSeconds);
         }
 
         private void FileMonitorOnFileRenamed(IFileMonitor fileMonitor, string newPath)
         {
-            _filePath = newPath;
+            FilePath = newPath;
             OnRenamed();
         }
 
@@ -108,7 +118,7 @@ namespace LiveLogViewer.ViewModels
             }
         }
 
-        public string FilePath => _filePath;
+        public string FilePath { get; private set; }
 
         public bool IsFrozen
         {

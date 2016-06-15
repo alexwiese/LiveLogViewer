@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LiveLogViewer
+namespace LiveLogViewer.FileMonitor
 {
     /// <summary>
     /// Implemented by classes that monitor a file for changes and report them.

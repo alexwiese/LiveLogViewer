@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -33,18 +34,29 @@
                   IsChecked="{Binding BufferedRead}"
                   ToolTip="For files that have large changes flushed to the file at once,&#x0a;enabling this setting may increase performance."/>
 
+        <Label Grid.Row="2" Grid.Column="0">Timer Interval
+        </Label>
+        <UniformGrid Grid.Column="1" Grid.Row="2">
+            <TextBox 
+                  VerticalAlignment="Center"
+                  Text="{Binding TimerInterval, ValidatesOnExceptions=True}"
+                  ToolTip="Number of milliseconds "/>
+            <Label>seconds</Label>
+        </UniformGrid>
 
-        <Label Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="0">Font:</Label>
-        <ListBox Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="0"
+        <Label Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="0">Font:</Label>
+        <ListBox Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="0"
                  Name="FontListBox"
                  ItemsSource="{Binding AvailableFonts}"
                  SelectedItem="{Binding SelectedFont}" />
 
-        <Button Grid.Row="5" Grid.Column="1" 
+        <Button Grid.Row="6" Grid.Column="1" 
                 Width="100" Margin="0,5,0,0" 
                 HorizontalAlignment="Right" 
                 IsDefault="True" IsCancel="True" Click="OkButton_OnClick">OK</Button>
     </Grid>
 </Window>
+
+     
 
     

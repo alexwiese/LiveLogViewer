@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="FileMonitor\ITimedFileMonitor.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Views\ConfigurationWindow.xaml.cs">
       <DependentUpon>ConfigurationWindow.xaml</DependentUpon>

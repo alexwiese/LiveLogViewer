@@ -3,17 +3,31 @@ using System.IO;
 using System.Text;
 using System.Threading;
 
-namespace LiveLogViewer
+namespace LiveLogViewer.FileMonitor
 {
-    public class TimedFileMonitor : FileMonitor
+    public class TimedFileMonitor : FileMonitor, ITimedFileMonitor
     {
         private readonly Timer _timer;
         private readonly FileSystemWatcher _watcher;
+        private TimeSpan _timerInterval;
 
-        public TimedFileMonitor(string filePath, Encoding encoding = null, TimeSpan interval = default(TimeSpan))
+        public TimeSpan TimerInterval
+        {
+            get
+            {
+                return _timerInterval;
+            }
+            set
+            {
+                _timerInterval = value;
+                _timer.Change(_timerInterval, _timerInterval);
+            }
+        }
+
+        public TimedFileMonitor(string filePath, Encoding encoding, TimeSpan interval)
             : base(filePath, encoding)
         {
-            interval = interval == default(TimeSpan) ? TimeSpan.FromSeconds(2) : interval;
+            _timerInterval = interval;
 
             _timer = new Timer(TimerCallback);
             _timer.Change(interval, interval);

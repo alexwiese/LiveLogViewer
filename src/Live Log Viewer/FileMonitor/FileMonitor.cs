@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 using LiveLogViewer.Helpers;
 
-namespace LiveLogViewer
+namespace LiveLogViewer.FileMonitor
 {
     public abstract class FileMonitor : IFileMonitor
     {
@@ -22,7 +23,7 @@ namespace LiveLogViewer
         private Encoding _encoding;
         private FileInfo _fileInfo;
 
-        protected FileMonitor(string filePath, Encoding encoding = null)
+        protected FileMonitor(string filePath, Encoding encoding)
         {
             Preconditions.CheckNotEmptyOrNull(filePath, "filePath");
             encoding = encoding ?? Encoding.UTF8;
