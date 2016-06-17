@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/w4sb0kinte9dxwrb?svg=true)](https://ci.appveyor.com/project/alexwiese/livelogviewer)
+[![Github All Releases](https://img.shields.io/github/downloads/alexwiese/LiveLogViewer/total.svg?maxAge=2592000)](https://github.com/alexwiese/LiveLogViewer/releases)
 
 # Live Log Viewer
 
