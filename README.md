@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/w4sb0kinte9dxwrb?svg=true)](https://ci.appveyor.com/project/alexwiese/livelogviewer)
 [![Github All Releases](https://img.shields.io/github/downloads/alexwiese/LiveLogViewer/total.svg?maxAge=2592000)](https://github.com/alexwiese/LiveLogViewer/releases)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falexwiese%2FLiveLogViewer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Falexwiese%2FLiveLogViewer?ref=badge_shield)
 
 # Live Log Viewer
 
@@ -18,3 +19,7 @@ Live Log Viewer supports different Encoding per file, based on the Encodings ava
 ### Download
 
 Latest binary is available [here](https://github.com/alexwiese/LiveLogViewer/releases/latest)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Falexwiese%2FLiveLogViewer.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Falexwiese%2FLiveLogViewer?ref=badge_large)
