@@ -10,7 +10,7 @@ Live Log Viewer is an application written in C# .NET using WPF for monitoring lo
 
 Live Log Viewer will monitor files for changes, renaming, deletion and creation. It will display any text that is appended to files being monitored. 
 
-![Demo](https://alexwie.se/wp-content/uploads/2017/02/Live-Log-Viewer-is-now-on-GitHub3a5f3f48-92f8-4a1d-8938-a4001a515eb8.png)
+![Demo](https://windows-cdn.softpedia.com/screenshots/Live-Log-Viewer_1.png)
 
 ### Encoding
 
