@@ -12,6 +12,11 @@ Live Log Viewer will monitor files for changes, renaming, deletion and creation.
 
 ![Demo](https://windows-cdn.softpedia.com/screenshots/Live-Log-Viewer_1.png)
 
+### Usage
+
+At startup, you are automatically prompted to open a log file that you want to open.  
+It is also possible to specify a file as a startup parameter, which will then be automatically displayed when the program is started.
+
 ### Encoding
 
 Live Log Viewer supports different Encoding per file, based on the Encodings available on the machine.

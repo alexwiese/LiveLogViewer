@@ -23,7 +23,7 @@ namespace LiveLogViewer.Views
     public partial class MainWindow : Window
     {
         private readonly MainViewModel _mainViewModel = new MainViewModel();
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +35,12 @@ namespace LiveLogViewer.Views
 
         private void OnContentRendered(object s, EventArgs e)
         {
-            PromptForFile();
+            if (Environment.GetCommandLineArgs().Length <= 1)
+            {
+                PromptForFile();
+            }
         }
-        
+
         private void AddButton_OnClick(object sender, RoutedEventArgs e)
         {
             PromptForFile();
@@ -62,16 +65,16 @@ namespace LiveLogViewer.Views
                 MessageBox.Show($"Error: {exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
         private void TextBoxBase_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = (TextBox)sender;
             var fileMonitorViewModel = (FileMonitorViewModel)textBox.DataContext;
-            
-            if (fileMonitorViewModel?.IsFrozen == false) 
+
+            if (fileMonitorViewModel?.IsFrozen == false)
                 textBox.ScrollToEnd();
         }
-        
+
         private void ConfigButton_OnClick(object sender, RoutedEventArgs e)
         {
             new ConfigurationWindow { Owner = this }.ShowDialog();
