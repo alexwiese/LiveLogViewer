@@ -66,6 +66,11 @@ namespace LiveLogViewer.ViewModels
             FreezeFileCommand = new RelayCommand(FreezeFile, CanFreezeFile);
 
             Settings.Default.PropertyChanged += OnSettingsChanged;
+
+            if (Environment.GetCommandLineArgs().Length > 1)
+            {
+                AddFileMonitor(Environment.GetCommandLineArgs()[1]);
+            }
         }
 
         private void OnSettingsChanged(object s, PropertyChangedEventArgs e)
