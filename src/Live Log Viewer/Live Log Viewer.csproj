@@ -6,6 +6,7 @@
     <RootNamespace>LiveLogViewer</RootNamespace>
     <UseWPF>true</UseWPF>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ApplicationIcon>Content\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
