@@ -67,10 +67,14 @@ namespace LiveLogViewer.ViewModels
 
             Settings.Default.PropertyChanged += OnSettingsChanged;
 
-            if (Environment.GetCommandLineArgs().Length > 1)
+            var fileArguments = Environment.GetCommandLineArgs()
+                .Skip(1)
+                .Where(a => !string.IsNullOrWhiteSpace(a));
+
+            foreach (var argument in fileArguments)
             {
-                AddFileMonitor(Environment.GetCommandLineArgs()[1]);
-            }
+                AddFileMonitor(argument);
+            }            
         }
 
         private void OnSettingsChanged(object s, PropertyChangedEventArgs e)
