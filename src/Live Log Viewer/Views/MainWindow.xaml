@@ -46,7 +46,7 @@
             <TabControl.ContentTemplate>
                 <DataTemplate DataType="viewModels:FileMonitorViewModel">
                     <Grid>
-                        <TextBox IsReadOnly="True" FontFamily="{Binding DataContext.Font, RelativeSource={RelativeSource AncestorType=Window}}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" UndoLimit="0" IsUndoEnabled="False" Text="{Binding Contents}" TextChanged="TextBoxBase_OnTextChanged" />
+                        <TextBox IsReadOnly="True" FontSize="{Binding DataContext.FontSize, RelativeSource={RelativeSource AncestorType=Window}}" FontFamily="{Binding DataContext.Font, RelativeSource={RelativeSource AncestorType=Window}}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" UndoLimit="0" IsUndoEnabled="False" Text="{Binding Contents}" TextChanged="TextBoxBase_OnTextChanged" />
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding FileExists, Converter={StaticResource VisibilityBoolConverter}}" >
                             <Border CornerRadius="3" Background="#BBBB0000">
                                 <Border.Effect>

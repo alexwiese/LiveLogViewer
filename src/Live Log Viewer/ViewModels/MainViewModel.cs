@@ -45,6 +45,8 @@ namespace LiveLogViewer.ViewModels
             }
         }
 
+        public int FontSize => Settings.Default.FontSize;
+
         public string Font => Settings.Default.Font;
 
         private readonly Timer _refreshTimer;
@@ -79,6 +81,7 @@ namespace LiveLogViewer.ViewModels
 
         private void OnSettingsChanged(object s, PropertyChangedEventArgs e)
         {
+            OnPropertyChanged(nameof(FontSize));
             OnPropertyChanged(nameof(Font));
         }
 
