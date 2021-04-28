@@ -37,14 +37,22 @@
         <Label Grid.Row="2" Grid.Column="0">Timer Interval
         </Label>
         <UniformGrid Grid.Column="1" Grid.Row="2">
-            <TextBox 
+            <TextBox
                   VerticalAlignment="Center"
                   Text="{Binding TimerInterval, ValidatesOnExceptions=True}"
-                  ToolTip="Number of milliseconds "/>
+                  ToolTip="Number of milliseconds"/>
             <Label>seconds</Label>
         </UniformGrid>
 
         <Label Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="0">Font:</Label>
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+            <TextBox
+                  Width="40"
+                  VerticalAlignment="Center"
+                  Text="{Binding FontSize, ValidatesOnExceptions=True}"
+                  ToolTip="Font size in point"/>
+            <Label>pt</Label>
+        </StackPanel>
         <ListBox Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="0"
                  Name="FontListBox"
                  ItemsSource="{Binding AvailableFonts}"

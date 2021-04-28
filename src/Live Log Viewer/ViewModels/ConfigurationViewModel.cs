@@ -71,6 +71,21 @@ namespace LiveLogViewer.ViewModels
             }
         }
 
+        public int FontSize
+        {
+            get
+            {
+                return Settings.Default.FontSize;
+            }
+            set
+            {
+                Preconditions.CheckArgumentRange(nameof(value), value, 1, int.MaxValue);
+                Settings.Default.FontSize = value;
+                Settings.Default.Save();
+                OnPropertyChanged();
+            }
+        }
+
         public ConfigurationViewModel()
         {
             var fonts = Fonts.SystemFontFamilies
